@@ -61,10 +61,14 @@ bool GPS_DATA(void)
 //        Serial.print(sensor.pdop_gps); 
 //        Serial.print(F(" UTC=")); Serial.print(utc_time.value()); 
 //        Serial.print(F(" MODE=")); Serial.println(sensor.Fix_Status);
-//        Serial.print("Latitude = ");
-//        Serial.print(gps.location.lat(), 6);
-//        Serial.print("Longitude = ");
-//        Serial.println(gps.location.lng(), 6);
+        Serial.print("Latitude = ");
+        Serial.print(gps.location.lat(), 6);
+        Serial.print("Longitude = ");
+        Serial.println(gps.location.lng(), 6);
+        Serial.print("Speed in km/h = ");
+        Serial.println(gps.speed.kmph(), 6);
+        Serial.print("Course in degrees = ");
+        Serial.println(gps.course.deg(), 6);
 
         sensor.year_gps = gps.date.year();
         sensor.month_gps = gps.date.month();
@@ -72,7 +76,10 @@ bool GPS_DATA(void)
 
         sensor.hour_gps = gps.time.hour();
         sensor.minute_gps = gps.time.minute();
-        sensor.second_gps = gps.time.second();  
+        sensor.second_gps = gps.time.second();
+
+        sensor.course = gps.course.value();
+        sensor.speed = gps.speed.value();
         
         if(sys.showid == 1)
         {

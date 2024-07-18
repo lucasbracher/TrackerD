@@ -1165,7 +1165,7 @@ void SYS::gps_data_Weite(void)
     }
    if(addr_gps_write <= 4095)
     {
-        for(uint8_t i=0;i<15;i++)
+        for(uint8_t i=0;i<23;i++)
         {
           GPSDATA.writeUChar(addr_gps_write, sys.gps_data_buff[i]);               
           addr_gps_write += sizeof(unsigned char);
@@ -1183,7 +1183,7 @@ void SYS::gps_data_Weite(void)
     }
    if(addr_gps_write <= 4080)
     {
-        for(uint8_t i=0;i<17;i++)
+        for(uint8_t i=0;i<25;i++)
         {
           GPSDATA.writeUChar(addr_gps_write, sys.gps_data_buff[i]);               
           addr_gps_write += sizeof(unsigned char);
@@ -1200,7 +1200,7 @@ void SYS::gps_data_Read(void)
 {
   if(sys.sensor_type == 13)
   {
-    for(uint8_t i=0;i<15;i++)
+    for(uint8_t i=0;i<23;i++)
     {
       sys.gps_data_buff[i] = GPSDATA.readUChar(addr_gps_read);
       addr_gps_read += sizeof(unsigned char);
@@ -1208,7 +1208,7 @@ void SYS::gps_data_Read(void)
   }
   else  if(sys.sensor_type == 22)
   {
-    for(uint8_t i=0;i<17;i++)
+    for(uint8_t i=0;i<25;i++)
     {
       sys.gps_data_buff[i] = GPSDATA.readUChar(addr_gps_read);
       addr_gps_read += sizeof(unsigned char);
@@ -1223,24 +1223,24 @@ void SYS::gps_pdta_Read(uint32_t pdta_addr)
   {
     if(sys.sensor_type == 13)
     {
-      for(uint8_t i=0;i<15;i++)
+      for(uint8_t i=0;i<23;i++)
       {
         sys.gps_data_buff[i] = GPSDATA.readUChar(addr_pdta_read);
         addr_pdta_read += sizeof(unsigned char);
       }
-       for(int i=0;i<15;i++)
+       for(int i=0;i<25;i++)
           Serial.printf("%.2x ",sys.gps_data_buff[i]);
       Serial.println();     
     }
     else  if(sys.sensor_type == 22)
     {
-      for(uint8_t i=0;i<17;i++)
+      for(uint8_t i=0;i<25;i++)
       {
         sys.gps_data_buff[i] = GPSDATA.readUChar(addr_pdta_read);
         addr_pdta_read += sizeof(unsigned char);
         addr_gps_read =0;
       }
-       for(int i=0;i<17;i++)
+       for(int i=0;i<25;i++)
           Serial.printf("%.2x ",sys.gps_data_buff[i]);
       Serial.println(); 
       Serial.printf("addr_pdta_read:%d\r\n",sys.addr_pdta_read);          
@@ -1255,13 +1255,13 @@ void SYS::read_gps_data_on_flash()
   Serial.print("GPS DATA:");
  if(sys.sensor_type == 13)
  {  
-    for(int i=0;i<15;i++)
+    for(int i=0;i<23;i++)
         Serial.printf("%.2x ",sys.gps_data_buff[i]);
     Serial.println();
  }
  else if(sys.sensor_type == 22)
  {
-    for(int i=0;i<17;i++)
+    for(int i=0;i<25;i++)
         Serial.printf("%.2x ",sys.gps_data_buff[i]);
     Serial.println();  
  }

@@ -173,6 +173,8 @@ class Sensor
     int16_t x=0;
     int16_t y=0;
     int16_t z=0;
+    int speed=0;
+    int course=0;
 };
 
 extern SYS sys;

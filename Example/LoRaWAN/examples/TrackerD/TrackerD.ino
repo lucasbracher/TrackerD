@@ -732,6 +732,25 @@ void do_send(osjob_t* j)
         {    
           mydata[i++] = sys.gps_data_buff[15] & 0xFF;  
           mydata[i++] = sys.gps_data_buff[16] & 0xFF;    
+          mydata[i++] = sys.gps_data_buff[17] & 0xFF;    
+          mydata[i++] = sys.gps_data_buff[18] & 0xFF;    
+          mydata[i++] = sys.gps_data_buff[19] & 0xFF;    
+          mydata[i++] = sys.gps_data_buff[20] & 0xFF;    
+          mydata[i++] = sys.gps_data_buff[21] & 0xFF;    
+          mydata[i++] = sys.gps_data_buff[22] & 0xFF;    
+          mydata[i++] = sys.gps_data_buff[23] & 0xFF;    
+          mydata[i++] = sys.gps_data_buff[24] & 0xFF;    
+        }
+        else
+        {
+          mydata[i++] = sys.gps_data_buff[15] & 0xFF;  
+          mydata[i++] = sys.gps_data_buff[16] & 0xFF;    
+          mydata[i++] = sys.gps_data_buff[17] & 0xFF;    
+          mydata[i++] = sys.gps_data_buff[18] & 0xFF;    
+          mydata[i++] = sys.gps_data_buff[19] & 0xFF;    
+          mydata[i++] = sys.gps_data_buff[20] & 0xFF;    
+          mydata[i++] = sys.gps_data_buff[21] & 0xFF;    
+          mydata[i++] = sys.gps_data_buff[22] & 0xFF;    
         }             
       }
       else
